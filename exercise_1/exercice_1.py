@@ -5,7 +5,7 @@ np.random.seed(42)  # for reproducibility
 
 # Parameters
 mu_x, sigma_x = 170, 10
-mu_y, sigma_y = 70, 5
+mu_y, sigma_y = 70, 15
 n = 1000
 
 # Generate random samples
