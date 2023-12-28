@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from agent import Agent
-from default_policy import default_policy
+from Rossignol_policy import default_policy
 
 WORLD_SIZE = 8
 WORLD_UPDATE_PERIOD = 10
@@ -44,20 +44,20 @@ def run_simulation() -> list:
         if step % (WORLD_UPDATE_PERIOD) == 0:
             rewards = reset_rewards(WORLD_SIZE)
             agent.known_rewards = np.zeros(WORLD_SIZE)
-            # print("\n---\nreset the rewards\n---")
-            # print(f"rewards: {rewards}\n")
+            print("\n---\nreset the rewards\n---")
+            print(f"rewards: {rewards}\n")
 
         # choose action and move agent
         action = default_policy(agent)
         agent.move(action, WORLD_SIZE)
-        # print(f"move {action}")
-        # print(f"position: {agent.position}")
+        print(f"move {action}")
+        print(f"position: {agent.position}")
 
         # get reward
         reward = rewards[agent.position]
         agent.known_rewards[agent.position] = reward
-        # print(f"found reward {reward}")
-        # print(f"known rewards: {agent.known_rewards}\n")
+        print(f"found reward {reward}")
+        print(f"known rewards: {agent.known_rewards}\n")
 
         # update and average the obtained rewards
         accumulated_reward += reward
