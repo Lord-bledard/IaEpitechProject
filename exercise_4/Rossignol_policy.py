@@ -1,17 +1,22 @@
 from agent import Agent
 
-
+import numpy as np
 import random
 
 def default_policy(agent: Agent) -> str:
     actions = ["left", "right", "none"]
-    epsilon = 0.25  # Probabilité d'exploration
+    # the exploration rate
+    aleatoire = 0.25
 
-    # Exploration: choisir une action au hasard
-    if random.random() < epsilon:
+    # if no reward has been found, increase the exploration rate
+    if np.sum(agent.known_rewards) == 0:
+        aleatoire *= 1.5
+
+    # random action
+    if random.random() < aleatoire:
         return random.choice(actions)
 
-    # Exploitation: choisir une action basée sur les récompenses connues
+    # change position according to known rewards to maximise rewards
     else:
         if agent.position > 0 and agent.known_rewards[agent.position - 1] > 0:
             return "left"
