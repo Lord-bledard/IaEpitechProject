@@ -1,0 +1,18 @@
+Pour réaliser l'Ex-4:
+
+ d'abord il faut comprendre comment la simulation est créé et comment l'agent se déplace dedans. De plus si comprenait que l'agent a connaissance des positions des dernières rewards qu'il obtient.
+
+ Afin d'augmenter les rewards que l'agent obtient dans le défaut policy je me suis d'abord documenté sur les différents algorithmes que je peux utiliser 
+ comment les algorithmes de bandit à plusieurs bras et notament le E-greedy algo qui permet de choisir la meilleure action connue, mais avec une petite probabilité, il choisit    une action aleatoire aussi.
+
+Dans mon policy:
+
+ j'ai d'abord ajouté une variable que j'ai initialier a 0.25 cette valeur represente le taux d'exploration ( c'est la probabilite que que L'agent explore de nouvelle positions)
+ j'ai ajouté ensuite un if qui effecute une action random comme aller a gauche ou a droite si l'agent explore (l'agent a 0.25 de chance de explorer).
+ Puis j'ai ajouter else qui si l'agent n'explore pas il va choisir selon positions des reward obtenu precedement un deplacement. Si l'agent a connaissance que une rewards precedente se trouvais a gauche il ira a gauche par exemple.
+
+Grace a ceci j'ai obtenu une moyenne de rewars autour de 20. Cependant jai cherche un moyen ameliorer encore ma moyenne de reward.
+
+Pour cela
+ jai ajouter un if qui va augmenter le taux d'exploration si L'agent n'a pas de position de rewards precedents en multipliant le taux exploration par 1.5.
+ Ainsi si l'agent n'a pas trouvé de rewards il va decider de plus explorer. Ce qui lui permet de maximiser la moyenne de rewards qui passe maintenant au dessus de 20.
