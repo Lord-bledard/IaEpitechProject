@@ -1,0 +1,56 @@
+Rapport d'Analyse des Métriques et des Graphiques - Clustering
+
+
+Objectif de l'Analyse :
+
+L'objectif de cette analyse est d'évaluer la performance relative de deux méthodes de clustering, à savoir le K-Means et le Hierarchical Clustering, sur un ensemble de données clients. 
+Nous avons utilisé différentes métriques et visualisations pour parvenir à des conclusions significatives.
+
+Résultats :
+
+K-Means :
+
+Silhouette Score : 0.49
+Un score élevé indique une bonne séparation des clusters.
+
+Davies-Bouldin Index : 0.86
+Une valeur relativement basse indique des clusters compacts et bien séparés.
+
+Hierarchical Clustering :
+
+Calinski-Harabasz Index : 1103.44
+Un index élevé suggère des clusters bien définis et séparés.
+
+Adjusted Rand Index : 0.22
+
+Un indice ajusté proche de 0.22 indique une correspondance modérée avec les vraies étiquettes.
+
+
+Analyse des Métriques :
+
+K-Means :
+
+Performances solides avec un Silhouette Score élevé et un Davies-Bouldin Index relativement bas.
+Les clusters semblent bien séparés et compacts.
+
+Hierarchical Clustering :
+Un bon Calinski-Harabasz Index indiquant des clusters bien définis.
+
+L'Adjusted Rand Index montre une correspondance modérée avec les vraies étiquettes.
+
+
+Visualisation des Résultats :
+
+Les graphiques PCA montrent la répartition des clusters dans l'espace réduit pour les deux méthodes. 
+Ils indiquent visuellement la séparation des clusters et peuvent aider à évaluer la performance.
+
+Stabilité des Clusters (K-Means) :
+
+En évaluant la stabilité des clusters avec différentes initialisations pour le K-Means, nous avons observé une stabilité rapide avec un Silhouette Score constant autour de 0.49-0.50. 
+Cela suggère que le K-Means converge rapidement vers une solution stable, indépendamment de l'initialisation. 
+La stabilité rapide est une caractéristique positive qui renforce la confiance dans les clusters identifiés.
+
+Conclusion :
+
+Le K-Means semble avoir des performances solides avec une stabilité rapide et des métriques indiquant une bonne séparation des clusters.
+Le Hierarchical Clustering montre également de bonnes performances, mais l'Adjusted Rand Index indique une correspondance modérée avec les vraies étiquettes.
