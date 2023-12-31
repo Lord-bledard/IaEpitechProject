@@ -4,10 +4,12 @@ The goal of this exercise is to compare the effectiveness of two popular dimensi
 Code Overview:
 
 Data Loading and Preprocessing:
+
 Data and labels are loaded from 'data.npy' and 'labels.npy', respectively.
 The data is standardized using StandardScaler from scikit-learn.
 
 PCA Dimensionality Reduction:
+
 PCA is applied to reduce the data to 2D and 3D.
 
 Visualization:

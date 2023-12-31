@@ -2,9 +2,12 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
+from sklearn.cluster import AgglomerativeClustering
+from sklearn.cluster import DBSCAN
+from sklearn.cluster import MiniBatchKMeans
 
 # Load the Olympic Data dataset
 olympic_data = pd.read_csv("dataset_olympics.csv")
@@ -27,7 +30,6 @@ plt.xlabel("Team")
 plt.ylabel("Number of Medals")
 plt.xticks(rotation=45)
 plt.show()
-
 
 # Preprocessing
 imputer = SimpleImputer(strategy="most_frequent")
@@ -56,23 +58,22 @@ plt.ylabel("Number of Medals")
 plt.legend(title='Team', loc='upper left')
 plt.show()
 
-# Clustering or Dimensionality Reduction
-features_for_processing = olympic_data_imputed.drop(['Team', 'Year', 'Medal'], axis=1)
+# Select relevant columns for further processing
+selected_features = ['Age', 'Year']
+numeric_data = olympic_data_imputed[selected_features]
 
-# Apply K-means clustering
-numeric_data = features_for_processing.select_dtypes(include='number')
-kmeans = KMeans(n_clusters=3, random_state=42)
-olympic_data_imputed['Cluster'] = kmeans.fit_predict(numeric_data)
+# Standardize the numeric data
+numeric_data = olympic_data_imputed.select_dtypes(include='number')
+scaler = StandardScaler()
+numeric_data_standardized = scaler.fit_transform(numeric_data)
 
-# Apply PCA for dimensionality reduction
-pca = PCA(n_components=2)
-principal_components = pca.fit_transform(numeric_data)
-olympic_data_imputed['PCA1'] = principal_components[:, 0]
-olympic_data_imputed['PCA2'] = principal_components[:, 1]
+# Apply K-means clustering with a reduced number of clusters
+kmeans = KMeans(n_clusters=2, random_state=42)  # You can adjust the number of clusters
+olympic_data_imputed['Cluster'] = kmeans.fit_predict(numeric_data_standardized)
 
 # Visualize clusters
-sns.scatterplot(x='PCA1', y='PCA2', hue='Cluster', data=olympic_data_imputed, palette="viridis")
-plt.title("K-means Clustering: PCA Components")
-plt.xlabel("PCA Component 1")
-plt.ylabel("PCA Component 2")
+sns.scatterplot(x='Age', y='Year', hue='Cluster', data=olympic_data_imputed, palette="viridis")
+plt.title("K-means Clustering: Age vs Year")
+plt.xlabel("Age")
+plt.ylabel("Year")
 plt.show()
