@@ -1,0 +1,33 @@
+Objective:
+The objective of this exercise is to demonstrate the convergence of the empirical average of random samples
+drawn from two normal distributions to the expected values of those distributions.
+We generate random samples representing heights (X) and weights (Y) and observe how the empirical average approaches
+the expected values over increasing sample sizes.
+
+Code Overview:
+
+Random Data Generation:
+
+Two normal distributions are generated using np.random.normal to simulate heights (X) and weights (Y).
+Parameters for X: mean (mu_x) = 170, standard deviation (sigma_x) = 10.
+Parameters for Y: mean (mu_y) = 70, standard deviation (sigma_y) = 15.
+Sample size (n) is set to 1000.
+Seed for reproducibility is set to 42.
+Scatter Plot:
+
+A scatter plot is created to visualize the random samples in a 2D space, where X represents height and Y represents weight.
+
+Convergence Analysis:
+Empirical averages are computed for increasing sample sizes using np.cumsum and then dividing by the number of samples.
+Expected values are defined based on the distribution parameters.
+Euclidean distances between the empirical averages and expected values are calculated.
+
+Convergence Plot:
+A plot is created to illustrate how the Euclidean distance between the empirical 
+average and the expected value changes with an increasing number of samples.
+
+Conclusion:
+The scatter plot visually represents random samples of heights and weights, while the convergence plot demonstrates 
+how the empirical average converges to the expected values as the sample size increases. 
+This exercise provides a practical illustration of the law of large numbers, 
+showing how sample averages become more accurate estimators of population means with larger sample sizes.
