@@ -1,0 +1,40 @@
+Objective:
+This analysis aims to explore and gain insights from the Olympic dataset. Various steps are performed, 
+including data cleaning, basic statistical analysis, visualization of medal distribution, and K-means clustering on selected features.
+
+1. Data Loading and Overview:
+
+The Olympic dataset is loaded from the "dataset_olympics.csv" file.
+Basic information about the dataset is displayed using info().
+The first few rows of the dataset are printed to provide an initial look at the data.
+
+2. General Analysis:
+
+Descriptive statistics and the count of missing values are calculated to understand the overall characteristics of the dataset.
+
+3. Distribution of Medals by Country:
+
+The number of medals is aggregated by country, and the top 10 countries with the highest medal counts are visualized using a bar plot.
+
+4. Preprocessing:
+
+Missing values are imputed using the most frequent strategy.
+The 'Sex' column is label-encoded for further analysis.
+
+5. Visualization of Medals Over the Years:
+
+The distribution of medals over the years is visualized for the top 5 teams with the highest cumulative medal counts.
+
+6. K-means Clustering:
+
+Relevant features ('Age' and 'Year') are selected for clustering.
+Numeric data is standardized using StandardScaler.
+K-means clustering is applied with a specified number of clusters (in this case, 2), and clusters are visualized.
+
+Conclusion:
+
+The analysis provides a comprehensive exploration of the Olympic dataset, including descriptive statistics, 
+visualization of medal distribution, and K-means clustering.
+The distribution of medals over the years for top teams offers insights into historical performance trends.
+K-means clustering on age and year features visually separates data points into clusters, 
+potentially revealing underlying patterns or trends in the dataset. Adjusting the number of clusters may yield different insights.
