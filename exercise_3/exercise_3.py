@@ -5,7 +5,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 
-data = np.load('exercise_3/data.npy')
+data = np.load('data.npy')
 
 # Normaliser les données
 scaler = StandardScaler()
